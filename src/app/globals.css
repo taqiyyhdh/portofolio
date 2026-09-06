@@ -14,6 +14,6 @@
 
 body {
   background-color: var(--color-dark-bg);
-  color: #F4F1DE;                  /* Teks utama (putih gading/cream lembut) */
+  color: #F4F1DE;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
