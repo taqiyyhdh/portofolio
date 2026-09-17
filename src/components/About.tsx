@@ -55,6 +55,7 @@ export default function About() {
               src="/profile.jpeg"
               alt={personalInfo.name}
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
@@ -73,7 +74,7 @@ export default function About() {
 
           <div className=" w-full p-4 rounded-xl border border-dark-border bg-dark-card/30 backdrop-blur-sm flex items-center hover:border-accent-amber/40 transition-colors">
             <p className="text-base sm:text-base text-center italic text-accent-cream/90 font-medium leading-relaxed">
-              "Code is the foundation, but intuitive user experience is the true destination."
+              &quot;Code is the foundation, but intuitive user experience is the true destination.&quot;
             </p>
           </div>
 
