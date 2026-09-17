@@ -1,5 +1,8 @@
+"use client";
+
+import { DotLottiePlayer } from "@dotlottie/react-player";
+import "@dotlottie/react-player/dist/index.css";
 import { BookText, Sparkles } from "lucide-react";
-import Image from "next/image";
 import { personalInfo } from "@/data/portofolioData";
 
 export default function Hero() {
@@ -50,16 +53,15 @@ export default function Hero() {
 
         </div>
 
+        {/* Kolom Animasi Lottie */}
         <div className="flex justify-center md:justify-center w-full">
-          <div className="relative w-full max-w-md aspect-square flex items-center justify-center">
-            <Image 
-              src="/hero-illustration.svg" 
-              alt="Hero Illustration" 
-              width={400}
-              height={400}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-              priority
-            /> 
+          <div className="w-[400px] h-[400px] max-w-full">
+            <DotLottiePlayer
+              src="/hero-animation.lottie"
+              autoplay
+              loop
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 
