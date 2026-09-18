@@ -57,8 +57,13 @@ export const projects: Project[] = [
 ];
 
 export const contactInfo = {
-  email: "taqiyyahadha@gmail.com",
+  phone: "6282311259005",
   socials: [
+    {
+      name: "Email",
+      url: "mailto:taqiyyahadha@gmail.com",
+      svgPath: "M1.5 4.5a3 3 0 0 1 3-3h15a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3h-15a3 3 0 0 1-3-3v-15Zm3-1.5a1.5 1.5 0 0 0-1.5 1.5v.425l9 5.4 9-5.4V4.5a1.5 1.5 0 0 0-1.5-1.5h-15Zm16.5 4.075-8.486 5.091a1 1 0 0 1-1.028 0L3 7.075V19.5a1.5 1.5 0 0 0 1.5 1.5h15a1.5 1.5 0 0 0 1.5-1.5V7.075Z",
+    },
     {
       name: "GitHub",
       url: "https://github.com/taqiyyhdh",
