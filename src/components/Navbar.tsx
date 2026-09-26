@@ -1,22 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { personalInfo } from "@/data/portofolioData";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Dipindahkan ke luar komponen agar nilainya konstan
+const NAV_LINKS = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("#home");
 
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
+  // Deteksi section aktif saat scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = NAV_LINKS.map((link) => link.href.substring(1));
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(`#${section}`);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-dark-bg/80 border-b border-dark-border">
+    <motion.header 
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-0 z-50 w-full backdrop-blur-md bg-dark-bg/80 border-b border-dark-border"
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo / Name */}
@@ -28,29 +61,55 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-base font-medium text-accent-muted">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className="hover:text-accent-cream transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav 
+          className="hidden md:flex items-center gap-2 text-base font-medium text-accent-muted"
+          onMouseLeave={() => setHoveredPath(null)}
+        >
+          {NAV_LINKS.map((link) => {
+            const isHighlighted = (hoveredPath || activeSection) === link.href;
+
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                onClick={() => setActiveSection(link.href)}
+                onMouseEnter={() => setHoveredPath(link.href)}
+                className="relative px-4 py-2 text-sm transition-colors"
+              >
+                {/* Efek Sorotan Latar Belakang */}
+                {isHighlighted && (
+                  <motion.div
+                    layoutId="navbar-highlight"
+                    className="absolute inset-0 bg-dark-border/70 rounded-full -z-10"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  />
+                )}
+                
+                <span className={isHighlighted ? "text-accent-cream font-semibold" : "text-accent-muted"}>
+                  {link.name}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Side: Resume & Hamburger Button */}
         <div className="flex items-center gap-3">
-          <a
+          <motion.a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-full bg-accent-cream text-dark-bg hover:bg-accent-amber transition-all duration-200 shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-full bg-accent-cream text-dark-bg hover:bg-accent-amber transition-colors shadow-sm"
           >
             <span>Resume</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </motion.a>
 
           {/* Hamburger Button (Mobile Only) */}
           <button
@@ -64,20 +123,33 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <nav className="md:hidden bg-dark-bg/95 border-b border-dark-border px-6 py-4 flex flex-col gap-4 text-base font-medium text-accent-muted">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)} // Menutup dropdown saat link diklik
-              className="hover:text-accent-cream transition-colors py-1"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-      )}
-    </header>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-dark-bg/95 border-b border-dark-border px-6 py-4 flex flex-col gap-4 text-base font-medium text-accent-muted overflow-hidden"
+          >
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => {
+                  setActiveSection(link.href);
+                  setIsOpen(false);
+                }}
+                className={`py-1 transition-colors ${
+                  activeSection === link.href ? "text-accent-cream font-bold" : "text-accent-muted hover:text-accent-cream"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
