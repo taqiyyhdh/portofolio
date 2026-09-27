@@ -33,8 +33,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-dark-bg text-accent-cream transition-colors duration-300">
-        <ThemeProvider
+    <body className="min-h-full flex flex-col bg-light-bg text-light-text dark:bg-dark-bg dark:text-accent-cream transition-colors duration-300">
+      <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
