@@ -74,12 +74,12 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.5 }}
       >
         <div className="flex items-center justify-center gap-2 mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-wide text-accent-cream uppercase">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-wide text-light-text dark:text-accent-cream uppercase">
             GET IN TOUCH!
           </h2>
         </div>
 
-        <p className="text-accent-muted text-sm sm:text-base max-w-2xl mx-auto mb-8">
+        <p className="color-light-text dark:text-accent-muted text-sm sm:text-base max-w-2xl mx-auto mb-8">
           Saya selalu terbuka untuk diskusi proyek baru, ide kreatif, atau peluang kolaborasi.
         </p>
       </motion.div>
@@ -90,7 +90,7 @@ export default function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        className="p-6 sm:p-10 rounded-2xl border border-dark-border bg-dark-card/40 backdrop-blur-sm flex flex-col items-center gap-4 hover:border-accent-amber/40 transition-colors duration-300 shadow-xl"
+        className="p-6 sm:p-10 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/40 backdrop-blur-sm flex flex-col items-center gap-4 hover:border-accent-amber/40 transition-colors duration-300 shadow-xl"
       >
         
         {/* Socials (Clickable) */}
@@ -113,7 +113,7 @@ export default function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl border border-dark-border bg-dark-bg/60 text-accent-muted hover:text-accent-amber hover:border-accent-amber/50 transition-colors duration-200"
+                className="p-2.5 rounded-xl border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg/60 color-light-text dark:text-accent-muted hover:text-accent-amber hover:border-accent-amber/50 transition-colors duration-200"
                 aria-label={social.name}
               >
                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -125,12 +125,12 @@ export default function Contact() {
         </div>
 
         {/* Separator Line */}
-        <div className="w-full border-t border-dark-border/60 my-2" />
+        <div className="w-full border-t border-light-border dark:border-dark-border/60 my-2" />
 
         {/* Form WhatsApp Area */}
         <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4 text-left">
           <div>
-            <label className="block text-xs font-semibold text-accent-cream uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-semibold text-light-text dark:text-accent-cream uppercase tracking-wider mb-1.5">
               Nama
             </label>
             <input
@@ -139,12 +139,12 @@ export default function Contact() {
               placeholder="Masukkan nama kamu"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-dark-border bg-dark-bg/60 text-accent-cream placeholder:text-accent-muted/50 focus:outline-none focus:border-accent-amber transition-colors text-sm"
+              className="w-full px-4 py-3 rounded-xl border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg/60 text-light-text dark:text-accent-cream placeholder:color-light-text focus:outline-none focus:border-accent-amber transition-colors text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-accent-cream uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-semibold text-light-text dark:text-accent-cream uppercase tracking-wider mb-1.5">
               Pesan
             </label>
             <textarea
@@ -153,7 +153,7 @@ export default function Contact() {
               placeholder="Tuliskan pesan kamu di sini..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-dark-border bg-dark-bg/60 text-accent-cream placeholder:text-accent-muted/50 focus:outline-none focus:border-accent-amber transition-colors text-sm resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg/60 text-light-text focus:outline-none focus:border-accent-amber transition-colors text-sm resize-none"
             />
           </div>
 

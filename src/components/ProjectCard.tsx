@@ -48,10 +48,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       variants={cardItemVariants}
       whileHover={{ scale: 1.025 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group rounded-2xl border border-dark-border bg-dark-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-colors duration-300 hover:border-accent-amber/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.15)]"
+      className="group rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-colors duration-300 hover:border-accent-amber/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.15)]"
     >
       {/* Thumbnail Container */}
-      <div className="relative w-full h-52 sm:h-60 overflow-hidden bg-dark-bg/80 border-b border-dark-border/40 p-2">
+      <div className="relative w-full h-52 sm:h-60 overflow-hidden bg-light-bg dark:bg-dark-bg/80 border-b border-light-border dark:border-dark-border/40 p-2">
         <Image
           src={project.image}
           alt={project.title}
@@ -59,22 +59,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-contain transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-dark-bg/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+        <div className="absolute inset-0 bg-light-bg/10 dark:bg-dark-bg/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
       </div>
 
       {/* Detail Proyek */}
       <div className="p-6 flex flex-col flex-1 gap-4">
-        <h3 className="text-2xl font-bold text-accent-cream group-hover:text-accent-amber transition-colors flex flex-col leading-snug">
+        <h3 className="text-2xl font-bold text-light-text dark:text-accent-cream group-hover:text-accent-amber transition-colors flex flex-col leading-snug">
           <span>{mainTitle}</span>
           {subTitle && (
-            <span className="text-base font-medium text-accent-cream/80">
+            <span className="text-base font-medium text-light-text dark:text-accent-cream/80">
               {subTitle}
             </span>
           )}
         </h3>
 
         {/* Deskripsi: line-clamp-3 untuk mengunci maksimum 3 baris */}
-        <p className="text-accent-muted text-sm leading-relaxed flex-1 line-clamp-3">
+        <p className="color-light-text dark:text-accent-muted text-sm leading-relaxed flex-1 line-clamp-3">
           {project.description}
         </p>
 
@@ -88,7 +88,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               key={idx}
               variants={badgeItemVariants}
               whileHover={{ scale: 1.05 }}
-              className="px-2.5 py-1 rounded-md border border-dark-border bg-dark-bg/60 text-accent-cream text-xs font-medium cursor-default"
+              className="px-2.5 py-1 rounded-md border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg/60 text-light-text dark:text-accent-cream text-xs font-medium cursor-default"
             >
               {tag}
             </motion.span>
@@ -96,7 +96,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </motion.div>
 
         {/* Action Links */}
-        <div className="flex items-center gap-4 pt-4 border-t border-dark-border/60">
+        <div className="flex items-center gap-4 pt-4 border-t border-light-border dark:border-dark-border/60">
           {project.demoLink && (
             <motion.a
               href={project.demoLink}
@@ -104,7 +104,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-accent-cream hover:text-accent-amber transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-light-text dark:text-accent-cream hover:text-accent-amber transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Live Demo</span>
@@ -118,7 +118,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-accent-muted hover:text-accent-cream transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold color-light-text dark:text-accent-muted hover:text-light-text transition-colors"
             >
               <Code2 className="w-4 h-4" />
               <span>Source Code</span>

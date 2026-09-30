@@ -1,19 +1,27 @@
 @import "tailwindcss";
 
+/* 1. Mengaktifkan strategi Dark Mode berbasis kelas (.dark) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Warna Background & Elemen Gelap (Dark Earth Tone) */
-  --color-dark-bg: #14110F;        /* Background utama (cokelat sangat gelap) */
-  --color-dark-card: #211C18;      /* Background kartu/box */
-  --color-dark-border: #332B25;    /* Border halus antar elemen */
+  --color-dark-bg: #14110F;        /* Background utama mode gelap */
+  --color-dark-card: #211C18;      /* Background kartu/box mode gelap */
+  --color-dark-border: #332B25;    /* Border halus mode gelap */
 
-  /* Warna Aksen Cokelat / Bronze / Cream */
-  --color-accent-amber: #D4A373;   /* Aksen emas/cokelat terang untuk judul & highlight */
-  --color-accent-cream: #E9D8A6;   /* Warna teks sekunder & tombol utama */
+  /* Warna Background & Elemen Terang (Light Earth Tone) */
+  --color-light-bg: #FAEDCD;       /* Background utama mode terang */
+  --color-light-card: #FEFAE0;     /* Background kartu/box mode terang */
+  --color-light-border: #E0D5B7;   /* Border halus mode terang */
+
+  /* Warna Aksen (Bisa dipakai di kedua mode) */
+  --color-accent-amber: #D4A373;   /* Aksen emas/cokelat terang */
+  --color-accent-cream: #FAEDCD;   /* Teks/tombol aksen */
   --color-accent-muted: #A39385;   /* Teks deskripsi/abu-cokelat */
+  --color-light-text: #14110F;     /* Teks utama untuk mode terang */
 }
 
+/* 2. Styling dasar body */
 body {
-  background-color: var(--color-dark-bg);
-  color: #F4F1DE;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }

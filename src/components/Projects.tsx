@@ -36,7 +36,7 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.5 }}
         className="flex items-center gap-2 mb-12"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-accent-cream uppercase">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-light-text dark:text-accent-cream uppercase">
           FEATURED PROJECTS
         </h2>
       </motion.div>
