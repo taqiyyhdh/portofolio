@@ -69,7 +69,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.5 }}
         className="flex items-center gap-2 mb-12"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-accent-cream uppercase">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-light-text dark:text-accent-cream uppercase">
           Bridging Design and Code
         </h2>
       </motion.div>
@@ -85,7 +85,7 @@ export default function About() {
         
         {/* Kolom Kiri: Deskripsi & Tech Stack (7 Kolom) */}
         <motion.div variants={cardVariants} className="lg:col-span-7 flex flex-col gap-4">
-          <div className="p-8 rounded-2xl border border-dark-border bg-dark-card/40 backdrop-blur-sm flex flex-col gap-6">
+          <div className="p-8 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/40 backdrop-blur-sm flex flex-col gap-6">
             
             {/* Getting to know me */}
             <div className="flex items-center gap-3 text-accent-amber">
@@ -93,7 +93,7 @@ export default function About() {
               <h3 className="text-xl font-bold">Getting to know me</h3>
             </div>
             
-            <p className="text-accent-muted text-base leading-relaxed">
+            <p className="color-light-text dark:text-accent-muted text-base leading-relaxed">
               {personalInfo.aboutBio || personalInfo.bio}
             </p>
 
@@ -115,7 +115,7 @@ export default function About() {
                     variants={badgeItemVariants}
                     whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-3 py-1.5 rounded-full border border-dark-border bg-dark-bg/60 text-accent-cream text-sm font-medium hover:border-accent-amber/60 hover:text-accent-amber transition-colors cursor-default"
+                    className="px-3 py-1.5 rounded-full border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg/60 text-light-text dark:text-accent-cream text-sm font-medium hover:border-accent-amber/60 hover:text-accent-amber transition-colors cursor-default"
                   >
                     {skill}
                   </motion.span>
@@ -131,7 +131,7 @@ export default function About() {
 
           {/* Foto Profil dengan Hover Animation */}
           <div 
-            className="relative w-64 h-64 rounded-full p-1 border-2 border-accent-amber/50 bg-dark-card/40 overflow-hidden shadow-xl group cursor-pointer"
+            className="relative w-64 h-64 rounded-full p-1 border-2 border-accent-amber/50 bg-light-card dark:bg-dark-card/40 overflow-hidden shadow-xl group cursor-pointer"
           >
             <Image
               src="/profile.jpeg"
@@ -146,27 +146,27 @@ export default function About() {
           <div className="flex flex-row gap-2">
             <motion.div 
               whileHover={{ y: -3 }}
-              className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-dark-border bg-dark-card/50 text-sm font-medium text-accent-amber hover:border-accent-amber/50 transition-colors"
+              className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/50 text-sm font-medium text-accent-amber hover:border-accent-amber/50 transition-colors"
             >
               <Code2 className="w-6 h-6 text-accent-amber shrink-0 animate-pulse" />
-              <h4 className="font-bold text-accent-cream text-sm animate-pulse">Frontend Focus</h4>
+              <h4 className="font-bold text-light-text dark:text-accent-cream text-sm animate-pulse">Frontend Focus</h4>
             </motion.div>
 
             <motion.div 
               whileHover={{ y: -3 }}
-              className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-dark-border bg-dark-card/50 text-sm font-medium text-accent-amber hover:border-accent-amber/50 transition-colors"
+              className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/50 text-sm font-medium text-accent-amber hover:border-accent-amber/50 transition-colors"
             >
               <Terminal className="w-6 h-6 text-accent-amber shrink-0 animate-pulse" />
-              <h4 className="font-bold text-accent-cream text-sm animate-pulse">Clean Code & UI</h4>
+              <h4 className="font-bold text-light-text dark:text-accent-cream text-sm animate-pulse">Clean Code & UI</h4>
             </motion.div>
           </div>
 
           {/* Quote Box */}
           <motion.div 
             whileHover={{ scale: 1.02 }}
-            className="w-full p-4 rounded-xl border border-dark-border bg-dark-card/30 backdrop-blur-sm flex items-center hover:border-accent-amber/40 transition-colors"
+            className="w-full p-4 rounded-xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/30 backdrop-blur-sm flex items-center hover:border-accent-amber/40 transition-colors"
           >
-            <p className="text-base sm:text-base text-center italic text-accent-cream/90 font-medium leading-relaxed">
+            <p className="text-base sm:text-base text-center italic text-light-text dark:text-accent-cream/90 font-medium leading-relaxed">
               &quot;Code is the foundation, but intuitive user experience is the true destination.&quot;
             </p>
           </motion.div>

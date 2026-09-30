@@ -57,7 +57,7 @@ export default function Hero() {
           {/* Badge Status */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-dark-border bg-dark-card/50 text-sm font-medium text-accent-amber"
+            className="inline-flex gap-2 px-3 py-1.5 rounded-full border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card/50 text-sm font-medium text-light-text dark:text-accent-amber"
           >
             <Sparkles className="w-4 h-4 animate-pulse" />
             <span className="animate-pulse">Ready to innovate</span>
@@ -68,14 +68,14 @@ export default function Hero() {
             variants={itemVariants}
             className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-none text-left"
           >
-            <span className="text-accent-cream block mb-2">Frontend</span>
+            <span className="text-light-text dark:text-accent-cream block mb-2">Frontend</span>
             <span className="text-accent-amber block">Developer</span>
           </motion.h1>
 
           {/* Bio / Deskripsi */}
           <motion.p 
             variants={itemVariants}
-            className="max-w-xl text-base sm:text-lg text-accent-muted leading-relaxed text-left"
+            className="max-w-xl text-base sm:text-lg color-light-text dark:text-accent-muted leading-relaxed text-left"
           >
             {personalInfo.bio}
           </motion.p>
@@ -89,7 +89,7 @@ export default function Hero() {
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-cream text-dark-bg font-bold text-sm hover:bg-accent-amber transition-colors shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-amber text-dark-bg font-bold text-sm hover:bg-accent-cream transition-colors shadow-md"
             >
               <BookText className="w-4 h-4" />
               <span>Projects</span>
@@ -101,7 +101,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-dark-border text-accent-cream font-semibold text-sm hover:border-accent-amber hover:text-accent-amber transition-colors bg-dark-card/30"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-light-border dark:border-dark-border text-light-text dark:text-accent-cream font-semibold text-sm hover:border-accent-amber hover:text-accent-amber transition-colors bg-light-card dark:bg-dark-card/30"
             >
               <svg 
                 className="w-4 h-4 fill-current" 
